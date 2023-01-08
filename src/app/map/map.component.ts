@@ -31,18 +31,20 @@ export class MapComponent implements OnInit {
     });
   }
 
+  // latitude: 39.545631, longitude: -8.716738,
+
   initMarkers() {
     const initialMarkers = [
       {
-        position: { lat: 28.625485, lng: 79.821091 },
+        position: { lat: 39.545631, lng: -8.715738 },
         draggable: true,
       },
       {
-        position: { lat: 28.625293, lng: 79.817926 },
+        position: { lat: 39.545631, lng: -8.714738 },
         draggable: false,
       },
       {
-        position: { lat: 28.625182, lng: 79.81464 },
+        position: { lat: 39.545631, lng: -8.713738 },
         draggable: true,
       },
     ];
