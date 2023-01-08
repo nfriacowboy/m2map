@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist/m2map",
     "ignore": [
       "firebase.json",
       "**/.*",
