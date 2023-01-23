@@ -12,6 +12,28 @@ import 'leaflet-routing-machine';
 export class MapComponent implements OnInit {
   map!: Leaflet.Map;
   markers: Leaflet.Marker[] = [];
+
+  currentStartPoint = Leaflet.latLng(0, 0);
+  currentEndPoint = Leaflet.latLng(0, 0);
+
+  currentMarkerPoint = Leaflet.latLng(0, 0);
+  currentMarker: Leaflet.Marker = new Leaflet.Marker<any>(
+    this.currentMarkerPoint
+  );
+  pathMarkers = [
+    {
+      position: { lat: 39.545631, lng: -8.715738 },
+      draggable: true,
+    },
+    {
+      position: { lat: 39.545631, lng: -8.714738 },
+      draggable: false,
+    },
+    {
+      position: { lat: 39.545631, lng: -8.713738 },
+      draggable: true,
+    },
+  ];
   options = {
     layers: [
       Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -22,6 +44,10 @@ export class MapComponent implements OnInit {
     zoom: 19,
     //center: { lat: 28.626137, lng: 79.821603 },
   };
+  mapControl: Leaflet.Routing.Control = new Leaflet.Routing.Control({
+    routeWhileDragging: true,
+    showAlternatives: true,
+  });
 
   constructor() {
     Leaflet.Icon.Default.mergeOptions({
@@ -34,22 +60,8 @@ export class MapComponent implements OnInit {
   // latitude: 39.545631, longitude: -8.716738,
 
   initMarkers() {
-    const initialMarkers = [
-      {
-        position: { lat: 39.545631, lng: -8.715738 },
-        draggable: true,
-      },
-      {
-        position: { lat: 39.545631, lng: -8.714738 },
-        draggable: false,
-      },
-      {
-        position: { lat: 39.545631, lng: -8.713738 },
-        draggable: true,
-      },
-    ];
-    for (let index = 0; index < initialMarkers.length; index++) {
-      const data = initialMarkers[index];
+    for (let index = 0; index < this.pathMarkers.length; index++) {
+      const data = this.pathMarkers[index];
       const marker = this.generateMarker(data, index);
       marker
         .addTo(this.map)
@@ -68,6 +80,7 @@ export class MapComponent implements OnInit {
   onMapReady($event: Leaflet.Map) {
     this.map = $event;
     this.initMarkers();
+    this.trackToMarker(0);
   }
 
   mapClicked($event: any) {
@@ -84,21 +97,55 @@ export class MapComponent implements OnInit {
 
   ngOnInit(): void {
     navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position);
-      const currentLatLng = Leaflet.latLng(
+      this.currentStartPoint = Leaflet.latLng(
         position.coords.latitude,
         position.coords.longitude
       );
-
-      // Define the start and end points of the route
-      const startPoint = currentLatLng;
-      const endPoint = Leaflet.latLng(39.535, -8.71);
-
-      // Use the routing API to calculate the route between the points
-      Leaflet.Routing.control({
-        waypoints: [Leaflet.latLng(startPoint), Leaflet.latLng(endPoint)],
-        routeWhileDragging: true,
-      }).addTo(this.map);
     });
+
+    navigator.geolocation.watchPosition((position) => {
+      this.currentMarkerPoint = Leaflet.latLng(
+        position.coords.latitude,
+        position.coords.longitude
+      );
+      this.updateNavigation();
+    });
+  }
+
+  startNavigation() {
+    this.mapControl.setWaypoints([
+      Leaflet.latLng(this.currentStartPoint),
+      Leaflet.latLng(this.currentEndPoint),
+    ]);
+
+    this.mapControl.addTo(this.map);
+
+    this.currentMarker = Leaflet.marker(this.currentStartPoint, {
+      draggable: false,
+    }).addTo(this.map);
+  }
+
+  endNavigation() {
+    this.mapControl.remove();
+    this.currentMarker.removeFrom(this.map);
+  }
+
+  updateNavigation() {
+    this.currentMarker.setLatLng(this.currentMarkerPoint);
+    /*if (Leaflet.Routing.control().getWaypoints().length > 0) {
+      Leaflet.Routing.control().setWaypoints([
+        Leaflet.latLng(this.currentStartPoint),
+        Leaflet.latLng(this.currentEndPoint),
+      ]);
+    }*/
+  }
+
+  trackToMarker(markerIndex: number) {
+    this.currentEndPoint = Leaflet.latLng(
+      this.pathMarkers[markerIndex].position.lat,
+      this.pathMarkers[markerIndex].position.lng
+    );
+    this.endNavigation();
+    this.startNavigation();
   }
 }

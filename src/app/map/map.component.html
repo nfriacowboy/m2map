@@ -1,6 +1,17 @@
-<div class="map-container"
-     leaflet
-     [leafletOptions]="options"
+<section>
+  <div class="example-label">Markers</div>
+  <div class="example-button-row">
+    <button (click)="startNavigation()" mat-raised-button>Start Navigation</button>
+    <button (click)="trackToMarker(0)" mat-raised-button>First</button>
+    <button (click)="trackToMarker(1)" color="primary" mat-raised-button>Second</button>
+    <button (click)="trackToMarker(2)" color="accent" mat-raised-button>Third</button>
+    <button (click)="endNavigation()" mat-raised-button>End Navigation</button>
+  </div>
+</section>
+<div (leafletClick)="mapClicked($event)"
      (leafletMapReady)="onMapReady($event)"
-     (leafletClick)="mapClicked($event)">
+     [leafletOptions]="options"
+     class="map-container"
+     leaflet>
 </div>
+

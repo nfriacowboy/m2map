@@ -10,5 +10,13 @@ body {
 }
 
 .map-container {
-  height: 600px;
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
 }
+
+.leaflet-routing-container {
+  background-color: #ECEFF1;
+  padding: 1em;
+}
+
