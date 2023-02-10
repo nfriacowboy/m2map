@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as Leaflet          from 'leaflet';
 import 'leaflet-routing-machine';
+import 'leaflet-gpx';
+import { GpxService }        from './services/gpx.service'; // delete Leaflet.Icon.Default.prototype._getIconUrl;
 
 // delete Leaflet.Icon.Default.prototype._getIconUrl;
 
@@ -11,6 +13,7 @@ import 'leaflet-routing-machine';
 })
 export class MapComponent implements OnInit {
   map!: Leaflet.Map;
+  currentTrack: Leaflet.GPX = Leaflet.GPX.prototype;
   markers: Leaflet.Marker[] = [];
 
   currentStartPoint = Leaflet.latLng(0, 0);
@@ -49,7 +52,7 @@ export class MapComponent implements OnInit {
     showAlternatives: true,
   });
 
-  constructor() {
+  constructor(protected gpxService: GpxService) {
     Leaflet.Icon.Default.mergeOptions({
       iconRetinaUrl: 'assets/marker-icon-2x.png',
       iconUrl: 'assets/marker-icon.png',
@@ -79,8 +82,9 @@ export class MapComponent implements OnInit {
 
   onMapReady($event: Leaflet.Map) {
     this.map = $event;
-    this.initMarkers();
-    this.trackToMarker(0);
+    //this.initMarkers();
+    this.startNavigation();
+    //this.trackToMarker(0);
   }
 
   mapClicked($event: any) {
@@ -113,25 +117,28 @@ export class MapComponent implements OnInit {
   }
 
   startNavigation() {
-    this.mapControl.setWaypoints([
+    /*this.mapControl.setWaypoints([
       Leaflet.latLng(this.currentStartPoint),
       Leaflet.latLng(this.currentEndPoint),
     ]);
 
     this.mapControl.addTo(this.map);
-
+*/
     this.currentMarker = Leaflet.marker(this.currentStartPoint, {
       draggable: false,
     }).addTo(this.map);
+
+
   }
 
   endNavigation() {
-    this.mapControl.remove();
+    //  this.mapControl.remove();
     this.currentMarker.removeFrom(this.map);
   }
 
   updateNavigation() {
     this.currentMarker.setLatLng(this.currentMarkerPoint);
+    this.map.panTo(this.currentStartPoint);
     /*if (Leaflet.Routing.control().getWaypoints().length > 0) {
       Leaflet.Routing.control().setWaypoints([
         Leaflet.latLng(this.currentStartPoint),
@@ -147,5 +154,28 @@ export class MapComponent implements OnInit {
     );
     this.endNavigation();
     this.startNavigation();
+  }
+
+  showTrack(markerIndex: number) {
+    const gpx = this.gpxService.trackByNumber(markerIndex);
+
+    if (this.currentTrack) {
+      this.currentTrack.remove();
+    }
+
+    this.currentTrack = new Leaflet.GPX(gpx, {
+      async: true,
+      marker_options: {
+        startIconUrl: 'assets/pin-icon-start.png',
+        endIconUrl: 'assets/pin-icon-end.png',
+        shadowUrl: 'assets/pin-shadow.png',
+        wptIconUrls: {
+          '': 'assets/pin-icon-wpt.png',
+        },
+      },
+    }).on('loaded', (event) => {
+      this.map.fitBounds(event.target.getBounds());
+    });
+    this.currentTrack.addTo(this.map);
   }
 }

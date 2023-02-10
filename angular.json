@@ -32,6 +32,11 @@
                 "glob": "**/*",
                 "input": "./node_modules/leaflet/dist/images",
                 "output": "assets/"
+              },
+              {
+                "glob": "**/*.png",
+                "input": "./node_modules/leaflet-gpx",
+                "output": "assets/"
               }
             ],
             "styles": [
