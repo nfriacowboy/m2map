@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as Leaflet          from 'leaflet';
+import { LeafletEvent }      from 'leaflet'; // delete Leaflet.Icon.Default.prototype._getIconUrl;
 import 'leaflet-routing-machine';
 import 'leaflet-gpx';
-import { GpxService }        from './services/gpx.service'; // delete Leaflet.Icon.Default.prototype._getIconUrl;
+import { GpxService }        from './services/gpx.service';
 
 // delete Leaflet.Icon.Default.prototype._getIconUrl;
 
@@ -127,8 +128,6 @@ export class MapComponent implements OnInit {
     this.currentMarker = Leaflet.marker(this.currentStartPoint, {
       draggable: false,
     }).addTo(this.map);
-
-
   }
 
   endNavigation() {
@@ -173,7 +172,7 @@ export class MapComponent implements OnInit {
           '': 'assets/pin-icon-wpt.png',
         },
       },
-    }).on('loaded', (event) => {
+    }).on('loaded', (event: LeafletEvent) => {
       this.map.fitBounds(event.target.getBounds());
     });
     this.currentTrack.addTo(this.map);
