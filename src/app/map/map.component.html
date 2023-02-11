@@ -5,7 +5,9 @@
     <button (click)="showTrack(0)" mat-raised-button>First</button>
     <button (click)="showTrack(1)" color="primary" mat-raised-button>Second</button>
     <!--<button (click)="trackToMarker(2)" color="accent" mat-raised-button>Third</button>-->
+    <button (click)="recenter()" color="accent" mat-raised-button>Recenter</button>
     <button (click)="endNavigation()" mat-raised-button>End Navigation</button>
+
   </div>
 </section>
 <div (leafletClick)="mapClicked($event)"

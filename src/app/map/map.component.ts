@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import * as Leaflet          from 'leaflet';
-import { LeafletEvent }      from 'leaflet'; // delete Leaflet.Icon.Default.prototype._getIconUrl;
+import { Component, OnInit }          from '@angular/core';
+import * as Leaflet                   from 'leaflet';
+import { DragEndEvent, LeafletEvent } from 'leaflet'; // delete Leaflet.Icon.Default.prototype._getIconUrl;
 import 'leaflet-routing-machine';
 import 'leaflet-gpx';
-import { GpxService }        from './services/gpx.service';
+import { GpxService }                 from './services/gpx.service';
 
 // delete Leaflet.Icon.Default.prototype._getIconUrl;
 
@@ -16,10 +16,8 @@ export class MapComponent implements OnInit {
   map!: Leaflet.Map;
   currentTrack: Leaflet.GPX = Leaflet.GPX.prototype;
   markers: Leaflet.Marker[] = [];
-
   currentStartPoint = Leaflet.latLng(0, 0);
   currentEndPoint = Leaflet.latLng(0, 0);
-
   currentMarkerPoint = Leaflet.latLng(0, 0);
   currentMarker: Leaflet.Marker = new Leaflet.Marker<any>(
     this.currentMarkerPoint
@@ -52,6 +50,7 @@ export class MapComponent implements OnInit {
     routeWhileDragging: true,
     showAlternatives: true,
   });
+  private userDragged = false;
 
   constructor(protected gpxService: GpxService) {
     Leaflet.Icon.Default.mergeOptions({
@@ -125,6 +124,11 @@ export class MapComponent implements OnInit {
 
     this.mapControl.addTo(this.map);
 */
+
+    this.map.on('dragend', (event: DragEndEvent) => {
+      this.userDragged = true;
+    });
+
     this.currentMarker = Leaflet.marker(this.currentStartPoint, {
       draggable: false,
     }).addTo(this.map);
@@ -137,7 +141,9 @@ export class MapComponent implements OnInit {
 
   updateNavigation() {
     this.currentMarker.setLatLng(this.currentMarkerPoint);
-    this.map.panTo(this.currentStartPoint);
+    if (!this.userDragged) {
+      this.map.panTo(this.currentStartPoint);
+    }
     /*if (Leaflet.Routing.control().getWaypoints().length > 0) {
       Leaflet.Routing.control().setWaypoints([
         Leaflet.latLng(this.currentStartPoint),
@@ -176,5 +182,10 @@ export class MapComponent implements OnInit {
       this.map.fitBounds(event.target.getBounds());
     });
     this.currentTrack.addTo(this.map);
+  }
+
+  recenter() {
+    this.userDragged = false;
+    this.map.panTo(this.currentStartPoint);
   }
 }
