@@ -60,6 +60,20 @@ export class MapComponent implements OnInit {
       iconUrl: 'assets/marker-icon.png',
       shadowUrl: 'assets/marker-shadow.png',
     });
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.currentStartPoint = Leaflet.latLng(
+        position.coords.latitude,
+        position.coords.longitude
+      );
+    });
+
+    navigator.geolocation.watchPosition((position) => {
+      this.currentMarkerPoint = Leaflet.latLng(
+        position.coords.latitude,
+        position.coords.longitude
+      );
+      this.updateNavigation();
+    });
   }
 
   // latitude: 39.545631, longitude: -8.716738,
@@ -102,20 +116,7 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    navigator.geolocation.getCurrentPosition((position) => {
-      this.currentStartPoint = Leaflet.latLng(
-        position.coords.latitude,
-        position.coords.longitude
-      );
-    });
 
-    navigator.geolocation.watchPosition((position) => {
-      this.currentMarkerPoint = Leaflet.latLng(
-        position.coords.latitude,
-        position.coords.longitude
-      );
-      this.updateNavigation();
-    });
   }
 
   startNavigation() {
@@ -134,6 +135,7 @@ export class MapComponent implements OnInit {
     this.currentMarker = Leaflet.marker(this.currentStartPoint, {
       draggable: false,
     }).addTo(this.map);
+    this.map.panTo(this.currentStartPoint);
   }
 
   endNavigation() {
