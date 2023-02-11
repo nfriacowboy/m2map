@@ -1,12 +1,20 @@
 <section>
-  <div class="example-label">Markers</div>
+  <div class="example-label">Navigation</div>
   <div class="example-button-row">
     <button (click)="startNavigation()" mat-raised-button>Start Navigation</button>
-    <button (click)="showTrack(0)" mat-raised-button>First</button>
-    <button (click)="showTrack(1)" color="primary" mat-raised-button>Second</button>
+    <button (click)="showTrack(1)" mat-raised-button>First</button>
+    <button (click)="showTrack(2)" color="primary" mat-raised-button>Second</button>
     <!--<button (click)="trackToMarker(2)" color="accent" mat-raised-button>Third</button>-->
     <button (click)="recenter()" color="accent" mat-raised-button>Recenter</button>
     <button (click)="endNavigation()" mat-raised-button>End Navigation</button>
+
+  </div>
+</section>
+<section>
+  <div class="example-label">Markers</div>
+  <div class="example-button-row">
+    <button (click)="toogleMarkers('trees')" mat-raised-button>Toogle trees</button>
+    <button (click)="toogleMarkers('lakes')" mat-raised-button>Toogle lakes</button>
 
   </div>
 </section>

@@ -3,7 +3,7 @@ import * as Leaflet                   from 'leaflet';
 import { DragEndEvent, LeafletEvent } from 'leaflet'; // delete Leaflet.Icon.Default.prototype._getIconUrl;
 import 'leaflet-routing-machine';
 import 'leaflet-gpx';
-import { GpxService }                 from './services/gpx.service';
+import { GpxService }                 from './services/gpx.service'; // delete Leaflet.Icon.Default.prototype._getIconUrl;
 
 // delete Leaflet.Icon.Default.prototype._getIconUrl;
 
@@ -15,6 +15,8 @@ import { GpxService }                 from './services/gpx.service';
 export class MapComponent implements OnInit {
   map!: Leaflet.Map;
   currentTrack: Leaflet.GPX = Leaflet.GPX.prototype;
+
+  currentMarkers = new Map<string, { gpxRef: Leaflet.GPX; inMap: boolean }>();
   markers: Leaflet.Marker[] = [];
   currentStartPoint = Leaflet.latLng(0, 0);
   currentEndPoint = Leaflet.latLng(0, 0);
@@ -163,9 +165,16 @@ export class MapComponent implements OnInit {
 
   showTrack(markerIndex: number) {
     const gpx = this.gpxService.trackByNumber(markerIndex);
+    const gpxMarkers = this.gpxService.maekersByTrack(markerIndex);
 
     if (this.currentTrack) {
       this.currentTrack.remove();
+    }
+
+    if (this.currentMarkers.size > 0) {
+      this.currentMarkers.forEach((item) => {
+        item.gpxRef.remove();
+      });
     }
 
     this.currentTrack = new Leaflet.GPX(gpx, {
@@ -182,10 +191,44 @@ export class MapComponent implements OnInit {
       this.map.fitBounds(event.target.getBounds());
     });
     this.currentTrack.addTo(this.map);
+
+    gpxMarkers.forEach((value, key) => {
+      const gpxRef = {
+        gpxRef: new Leaflet.GPX(value, {
+          async: true,
+          marker_options: {
+            startIconUrl: 'assets/pin-icon-start.png',
+            endIconUrl: 'assets/pin-icon-end.png',
+            shadowUrl: 'assets/pin-shadow.png',
+            wptIconUrls: {
+              '': 'assets/pin-icon-wpt.png',
+            },
+          },
+        }),
+        inMap: true,
+      };
+
+      this.currentMarkers.set(key, gpxRef);
+      gpxRef.gpxRef.addTo(this.map);
+    });
   }
 
   recenter() {
     this.userDragged = false;
     this.map.panTo(this.currentStartPoint);
+  }
+
+  toogleMarkers(markerType: string) {
+    this.currentMarkers.forEach((value, key) => {
+      if (key === markerType) {
+        if (value.inMap) {
+          value.gpxRef.remove();
+          value.inMap = false;
+        } else {
+          value.gpxRef.addTo(this.map);
+          value.inMap = true;
+        }
+      }
+    });
   }
 }

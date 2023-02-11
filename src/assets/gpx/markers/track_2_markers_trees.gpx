@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd http://www.garmin.com/xmlschemas/GpxExtensions/v3 http://www.garmin.com/xmlschemas/GpxExtensionsv3.xsd http://www.garmin.com/xmlschemas/TrackPointExtension/v1 http://www.garmin.com/xmlschemas/TrackPointExtensionv1.xsd http://www.topografix.com/GPX/gpx_style/0/2 http://www.topografix.com/GPX/gpx_style/0/2/gpx_style.xsd" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" xmlns:gpx_style="http://www.topografix.com/GPX/gpx_style/0/2" version="1.1" creator="WTracks">
+<metadata>
+    <name>Markers Caminhada_1</name>
+    <author>
+        <name>gpx.studio</name>
+        <link href="https://gpx.studio"></link>
+    </author>
+</metadata>
+<wpt lat="39.536760674071516" lon="-8.7127161026001">
+    <ele>198.7</ele>
+    <name>Chão da Aberta</name>
+    <cmt>The three</cmt>
+    <desc>Important Three, &lt;img src=&quot;https://www.regiaodeleiria.pt/wp-content/uploads/2018/03/carvalho-mira-de-aire.jpg&quot; width=&quot;100%&quot; /&gt; ver mais um &lt;a target=&quot;_blank&quot; href=&quot;https://www.regiaodeleiria.pt/2018/03/mira-aire-perdeu-carvalho-nasceu-da-freguesia/&quot;&gt;aqui&lt;/a&gt;</desc>
+    <sym>Tree Stand</sym>
+</wpt>
+<wpt lat="39.53843619017596" lon="-8.714105486869814">
+    <ele>203.8</ele>
+    <name>Cafe NuMinde</name>
+    <cmt>The Taskodromus</cmt>
+    <desc>O Tasko</desc>
+    <sym>Fast Food</sym>
+</wpt>
+</gpx>

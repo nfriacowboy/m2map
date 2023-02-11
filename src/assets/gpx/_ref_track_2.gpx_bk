@@ -7,6 +7,27 @@
         <link href="https://gpx.studio"></link>
     </author>
 </metadata>
+<wpt lat="39.53336400992428" lon="-8.715344667434694">
+    <ele>195.5</ele>
+    <name>Lagoa Larga</name>
+    <cmt>A lake</cmt>
+    <desc>A lake to see something</desc>
+    <sym>Water Hydrant</sym>
+</wpt>
+<wpt lat="39.536760674071516" lon="-8.7127161026001">
+    <ele>198.7</ele>
+    <name>Chão da Aberta</name>
+    <cmt>The three</cmt>
+    <desc>Important Three, &lt;img src=&quot;https://www.regiaodeleiria.pt/wp-content/uploads/2018/03/carvalho-mira-de-aire.jpg&quot; width=&quot;100%&quot; /&gt; ver mais um &lt;a target=&quot;_blank&quot; href=&quot;https://www.regiaodeleiria.pt/2018/03/mira-aire-perdeu-carvalho-nasceu-da-freguesia/&quot;&gt;aqui&lt;/a&gt;</desc>
+    <sym>Tree Stand</sym>
+</wpt>
+<wpt lat="39.53843619017596" lon="-8.714105486869814">
+    <ele>203.8</ele>
+    <name>Cafe NuMinde</name>
+    <cmt>The Taskodromus</cmt>
+    <desc>O Tasko</desc>
+    <sym>Fast Food</sym>
+</wpt>
 <trk>
     <name>Caminhada_1</name>
     <type>Running</type>
