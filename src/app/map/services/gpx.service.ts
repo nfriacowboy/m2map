@@ -11,11 +11,15 @@ export class GpxService {
     this.traks.set('track_1', '/assets/gpx/track_1.gpx');
     this.traks.set('track_2', '/assets/gpx/track_2.gpx');
 
+    const tr1 = new Map<string, string>();
+    tr1.set('lakes', '/assets/gpx/markers/track_1_markers_lakes.gpx');
+
     const tr2 = new Map<string, string>();
     tr2.set('trees', '/assets/gpx/markers/track_2_markers_trees.gpx');
     tr2.set('lakes', '/assets/gpx/markers/track_2_markers_lakes.gpx');
 
     this.marks.set('track_2', tr2);
+    this.marks.set('track_1', tr1);
   }
 
   trackByNumber(trackNumber: number) {
