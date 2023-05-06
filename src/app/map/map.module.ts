@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 
-import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { MapComponent } from './map.component';
+import { LeafletModule }    from '@asymmetrik/ngx-leaflet';
+import { MapComponent }     from './map.component';
 import { MapRoutingModule } from './map-routing.module';
 
 @NgModule({
@@ -10,4 +10,5 @@ import { MapRoutingModule } from './map-routing.module';
   providers: [],
   bootstrap: [],
 })
-export class MapModule {}
+export class MapModule {
+}

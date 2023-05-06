@@ -1,11 +1,17 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MapComponent }         from './map.component';
+import { StartComponent }       from "./start/start.component";
+import { ItemComponent }        from "./item/item.component";
 
 const routes: Routes = [
   {
     path: '',
-    component: MapComponent,
+    component: StartComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'item',
+    component: ItemComponent,
     pathMatch: 'full',
   },
 ];
@@ -14,5 +20,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MapRoutingModule {
+export class HomeRoutingModule {
 }
