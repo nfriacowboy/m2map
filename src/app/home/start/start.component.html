@@ -1,0 +1,40 @@
+<div class="high-light">
+  <img src="https://th.bing.com/th/id/OIP.iGwADEOKM3ihQQaCSpY9AQHaE7?pid=ImgDet&rs=1"/>
+  <p>Explore o polge com confiança e conheça todos os pontos de interesse. (Texto exemplo para introdução das pessoas a
+    esta parte do website do Mira-Minde)
+    Pode ter + texto.</p>
+</div>
+<button class="button-right-icon very-wide" color="accent" mat-raised-button>
+  Passear sem escolher um caminho
+
+  <mat-icon class="right-icon" color="dark-green">
+    chevron_right
+  </mat-icon>
+</button>
+
+
+<h1>Caminhos</h1>
+<div fxLayout="row wrap" fxLayoutGap="16px grid">
+
+  <div
+    *ngFor="let num of [1,2,3,4,5,6,7]"
+    fxFlex="25%"
+    fxFlex.sm="33%" fxFlex.xs="50%">
+    <mat-card class="mat-elevation-z4">
+      <mat-card-header>
+        <mat-card-title>Himalayan Peaks</mat-card-title>
+      </mat-card-header>
+      <img
+        mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+        width="100%"
+      />
+      <mat-card-content>
+        <p>The Himalayas is a mountain range in Asia.</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

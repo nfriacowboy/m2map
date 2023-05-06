@@ -1,0 +1,42 @@
+<mat-toolbar class="fixed-header d-flex" color="primary">
+  <span>My App</span>
+  <span class="spacer"></span>
+  <!-- <button (click)="sidenav.toggle()" aria-label="Menu da aplicação de navegação de Mira-Minde " mat-icon-button>
+     <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+     <mat-icon *ngIf="sidenav.opened">clear</mat-icon>
+   </button>-->
+  <button [matMenuTriggerFor]="menu" mat-icon-button>
+    <mat-icon>menu</mat-icon>
+  </button>
+</mat-toolbar>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+  <button mat-menu-item>Item 3</button>
+</mat-menu>
+<!--<mat-sidenav-container class="flex-grow-1">
+  <mat-sidenav #sidenav [fixedTopGap]="52" mode="side" position="end" role="navigation">
+    <mat-nav-list>
+      <a [routerLink]="['/menu1']" mat-list-item routerLinkActive="active">
+        <span [translate]="'Menu1'" class="font-lg">werwerwerwer</span>
+      </a>
+      <a [routerLink]="['/menu2']" mat-list-item routerLinkActive="active">
+        <span [translate]="'Menu2'" class="font-lg">werwerwerwer</span>
+      </a>
+      <a [routerLink]="['/menu3']" mat-list-item routerLinkActive="active">
+        <span [translate]="'Menu3'" class="font-lg">werwerwer</span>
+      </a>
+      <a [routerLink]="['/menu4']" mat-list-item routerLink="active">
+        <span [translate]="'Menu4'" class="font-lg">werwerwerwer</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>-->
+
+<main class="content">
+  <router-outlet></router-outlet>
+</main>
+<!--
+  </mat-sidenav-content>
+</mat-sidenav-container>
+-->

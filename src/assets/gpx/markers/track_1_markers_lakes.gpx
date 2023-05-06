@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx creator="WTracks"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.topografix.com/GPX/1/1" version="1.1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+<metadata>
+  <name>Teste Pontos</name>
+  <desc></desc>
+  <author><name>WTracks</name></author>
+  <link href='https://opoto.github.io/wtracks/'>
+    <text>WTracks</text>
+    <type>text/html</type>
+  </link>
+  <time>2023-05-05T16:11:43.302Z</time>
+  <bounds minlat="39.503643" minlon="-8.773355" maxlat="39.557662" maxlon="-8.659716"/>
+</metadata>
+<wpt lat="39.533242" lon="-8.71568"><name>Lagoas_Lagoa Larga</name><desc>Uma das lagoas mais bonitas do polje</desc></wpt>
+<wpt lat="39.534777" lon="-8.713417"><name>Lagoas_Poço da Espinheira</name><desc>Onde muitos Mirenses aprenderam a nadar</desc></wpt>
+<wpt lat="39.524567" lon="-8.706322"><name>Lagoas_Lagoeiro</name></wpt>
+<wpt lat="39.541398" lon="-8.722214">
+  <name>Nascentes_Olho</name>
+  <desc>
+  &#x3C;p&#x3E;&#x3C;strong&#x3E;askjdhsk&#x3C;/strong&#x3E;dafjsd&#x3C;/p&#x3E;&#x3C;br&#x3E;&#x3C;p&#x3E;sdfsdfs&#x3C;/p&#x3E;&#x3C;br&#x3E;&#x3C;p&#x3E;&#x3C;img src=&#x22;https://gem.pt/wp-content/uploads/2021/01/49341932912_8dd3045b66_k.jpg&#x22; alt=&#x22;isto &#xE9; kayak!&#x22;&#x3E;&#x3C;br&#x3E;&#x3C;/p&#x3E;&#x3C;br&#x3E;&#x3C;p&#x3E;veja &#x3C;a href=&#x22;https://mira-minde.pt&#x22; title=&#x22;Site do Mira-Minde&#x22; target=&#x22;_blank&#x22;&#x3E;mais aqui!&#x3C;/a&#x3E;&#x3C;/p&#x3E;
+  </desc>
+</wpt>
+<wpt lat="39.533758" lon="-8.699782"><name>Nascentes_Pena do Poio</name></wpt>
+<wpt lat="39.532948" lon="-8.699754"><name>Nascentes_Contenda</name></wpt>
+<wpt lat="39.533637" lon="-8.699767"><name>História_Moinho d'água</name></wpt>
+<wpt lat="39.525266" lon="-8.690153"><name>Nascentes_Regatinho</name></wpt>
+<wpt lat="39.525246" lon="-8.691913"><name>Vegetação_Carvalhos Centenários</name></wpt>
+<wpt lat="39.516308" lon="-8.693367"><name>Vegetação_Freixos em talhadia</name></wpt>
+<wpt lat="39.516309" lon="-8.692876"><name>História_Eira em Minde</name></wpt>
+<wpt lat="39.524635" lon="-8.710667"><name>História_Alto do Lombeiro</name></wpt>
+<wpt lat="39.530509" lon="-8.708433"><name>História_Enguias do Rei</name></wpt>
+<wpt lat="39.53193" lon="-8.703007"><name>História_Cisterna Grande</name></wpt>
+</gpx>
