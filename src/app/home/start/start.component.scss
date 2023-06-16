@@ -1,3 +1,29 @@
+.content {
+  display: contents;
+}
+
+.start-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.start-description {
+  font-size: 18px;
+  text-align: left;
+}
+
+.start-title-paths {
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.start-go-path-button {
+  color: #FFFFFF !important;
+  background-color: #5B9E48 !important;
+  justify-content: flex-start !important;
+}
+
 .high-light {
   width: 100%;
 

@@ -1,0 +1,44 @@
+.dialog {
+  width: 80vw;
+}
+
+.green {
+  color: #177245;
+}
+
+.blue-drop {
+  color: #3A8CE5;
+}
+
+.blue-water {
+  color: #1A179B
+}
+
+.yellow {
+  color: #e78726
+}
+
+.dialog h1 {
+  font-size: 21px;
+  color: #674422;
+}
+
+mat-dialog-content {
+  color: #000000 !important;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+
+.text-container {
+  flex: 1;
+  margin-left: 8px;
+}
+
+.button {
+  margin-left: auto;
+}

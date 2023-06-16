@@ -10,10 +10,11 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'item',
+    path: 'path-info',
     component: ItemComponent,
     pathMatch: 'full',
   },
+
 ];
 
 @NgModule({

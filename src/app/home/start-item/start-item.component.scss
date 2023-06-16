@@ -1,8 +1,50 @@
-.example-card {
+.card {
   max-width: 400px;
+  /* border: 1px solid #6C6C6C; */
+
 }
 
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
+}
+
+.item-image {
+  padding: 2px;
+}
+
+.link-green-button {
+  color: #177245;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.align-right {
+  display: flex;
+  justify-content: right;
+}
+
+.difficulty-1 {
+  color: #5B9E48;
+  font-size: 10px;
+}
+
+.difficulty-3 {
+  color: #A91101;
+  font-size: 10px;
+}
+
+.item-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.item-info {
+  color: #6C6C6C;
+  font-size: 10px;
+}
+
+.mat-mdc-card-content {
+  padding: 0 7px !important;
 }

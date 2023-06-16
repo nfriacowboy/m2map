@@ -9,10 +9,36 @@ mat-sidenav {
 }
 
 main {
-  padding: 10px;
+  padding: 0;
 }
 
 .spacer {
   width: 100%;
 }
 
+.fixed-header mat-grid-list {
+  width: 100% !important;
+  height: 64px !important;
+  padding: 0 !important;
+}
+
+.fixed-header mat-grid-tile {
+  height: 64px !important;
+  padding: 0 !important;
+}
+
+.align-right {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}
+
+.align-left {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+}
+
+.header-logo {
+  margin-top: 10px;
+}

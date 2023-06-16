@@ -1,10 +1,10 @@
-<section>
+<!--<section>
   <div class="example-label">Navigation</div>
   <div class="example-button-row">
     <button (click)="startNavigation()" mat-raised-button>Start Navigation</button>
     <button (click)="showTrack(1)" mat-raised-button>First</button>
     <button (click)="showTrack(2)" color="primary" mat-raised-button>Second</button>
-    <!--<button (click)="trackToMarker(2)" color="accent" mat-raised-button>Third</button>-->
+    &lt;!&ndash;<button (click)="trackToMarker(2)" color="accent" mat-raised-button>Third</button>&ndash;&gt;
     <button (click)="recenter()" color="accent" mat-raised-button>Recenter</button>
     <button (click)="endNavigation()" mat-raised-button>End Navigation</button>
 
@@ -17,11 +17,13 @@
     <button (click)="toogleMarkers('lakes')" mat-raised-button>Toogle lakes</button>
 
   </div>
-</section>
-<div (leafletClick)="mapClicked($event)"
-     (leafletMapReady)="onMapReady($event)"
-     [leafletOptions]="options"
-     class="map-container"
-     leaflet>
+</section>-->
+<app-map-header (showFilters)="openFilters()"></app-map-header>
+<app-map-recenter (recenter)="recenter()"></app-map-recenter>
+<div
+  (leafletMapReady)="onMapReady($event)"
+  [leafletOptions]="environment.leafletOptions"
+  class="map-container"
+  leaflet>
 </div>
 

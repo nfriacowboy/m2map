@@ -1,0 +1,56 @@
+<div class="dialog">
+  <h1 mat-dialog-title>Filtros</h1>
+  <mat-dialog-content>
+
+    <mat-grid-list cols="1" rowHeight="50px">
+      <mat-grid-tile>
+        <div class="row">
+          <mat-icon class="green">park</mat-icon>
+          <div class="text-container">
+            Árvores Históricas
+          </div>
+          <app-map-filter-selector (change)="onFilterChange($event)"
+                                   [isChecked]="filterService.selectedFilters.get('trees') || false"
+                                   [name]="'trees'"></app-map-filter-selector>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="row">
+          <mat-icon class="blue-drop">water_drop</mat-icon>
+          <div class="text-container">
+            Lagoas
+          </div>
+          <app-map-filter-selector (change)="onFilterChange($event)"
+                                   [isChecked]="filterService.selectedFilters.get('lakes') || false"
+                                   [name]="'lakes'"></app-map-filter-selector>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="row">
+          <mat-icon class="blue-water">water</mat-icon>
+          <div class="text-container">
+            Nascentes
+          </div>
+          <app-map-filter-selector (change)="onFilterChange($event)"
+                                   [isChecked]="filterService.selectedFilters.get('springs') || false"
+                                   [name]="'springs'"></app-map-filter-selector>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="row">
+          <mat-icon class="yellow">emoji_nature</mat-icon>
+          <div class="text-container">
+            Outros
+          </div>
+          <app-map-filter-selector (change)="onFilterChange($event)"
+                                   [isChecked]="filterService.selectedFilters.get('others') || false"
+                                   [name]="'others'"></app-map-filter-selector>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button [mat-dialog-close]="this" cdkFocusInitial mat-button>Fechar</button>
+  </mat-dialog-actions>
+</div>

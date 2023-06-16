@@ -34,17 +34,25 @@ body {
   border: 20px solid #ff6550;
 }
 
-
-.content {
-  overflow-x: auto;
-  height: 100vh;
-  padding: 16px;
+.shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.content {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px;
+  height: calc(100vh - 56px);
+}
+
+.screen-content {
+  padding: 8px;
+}
 
 .content mat-card {
   width: 100%;
 }
+
 
 .very-wide {
   width: 100% !important;
@@ -58,3 +66,5 @@ body {
   position: absolute !important;
   right: 0;
 }
+
+

@@ -1,0 +1,48 @@
+.map-header {
+  position: absolute;
+  top: 10px;
+  z-index: 999;
+  background: #FFF;
+
+  border-radius: 10px;
+  left: 60px;
+  right: 10px;
+}
+
+.map-header-logo {
+  float: left;
+  height: 50px;
+  padding: 5px;
+}
+
+.map-header-logo img {
+  margin-top: 10px;
+}
+
+.map-header-title {
+  max-width: 50%;
+  overflow: hidden;
+  height: 40px;
+  float: left;
+  margin-top: 10px;
+}
+
+.map-header-options {
+  height: 60px;
+  float: right;
+  margin-right: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.map-header-options button mat-icon {
+  transform: scale(2);
+  color: #177245;
+
+}
+
+.spacer {
+  height: 60px;
+  width: 2px;
+  background: rgba(108, 108, 108, 0.1);
+}

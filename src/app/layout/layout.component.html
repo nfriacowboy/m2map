@@ -1,13 +1,27 @@
-<mat-toolbar class="fixed-header d-flex" color="primary">
-  <span>My App</span>
-  <span class="spacer"></span>
-  <!-- <button (click)="sidenav.toggle()" aria-label="Menu da aplicação de navegação de Mira-Minde " mat-icon-button>
-     <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
-     <mat-icon *ngIf="sidenav.opened">clear</mat-icon>
-   </button>-->
-  <button [matMenuTriggerFor]="menu" mat-icon-button>
-    <mat-icon>menu</mat-icon>
-  </button>
+<mat-toolbar class="fixed-header d-flex shadow">
+  <mat-grid-list cols="3" rowHeight="1:1">
+    <mat-grid-tile>
+      <div *ngIf="!isRootPage" class="align-left">
+        <button (click)="goBack()" mat-icon-button>
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </div>
+
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="header-logo"><img src="assets/images/logo-header.png"/></div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="align-right">
+        <button [matMenuTriggerFor]="menu" mat-icon-button>
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
 </mat-toolbar>
 <mat-menu #menu="matMenu">
   <button mat-menu-item>Item 1</button>
@@ -33,7 +47,7 @@
   </mat-sidenav>
   <mat-sidenav-content>-->
 
-<main class="content">
+<main #contentWrapper class="content">
   <router-outlet></router-outlet>
 </main>
 <!--

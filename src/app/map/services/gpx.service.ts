@@ -1,32 +1,33 @@
-import { Injectable } from '@angular/core';
+import { Injectable }    from '@angular/core';
+import { FilterService } from "./filter.service";
 
 @Injectable({
   providedIn: 'root',
 })
 export class GpxService {
   private traks = new Map<string, string>();
-  private marks = new Map<string, Map<string, string>>();
+  private marks = new Map<string, string>();
 
-  constructor() {
-    this.traks.set('track_1', '/assets/gpx/track_1.gpx');
-    this.traks.set('track_2', '/assets/gpx/track_2.gpx');
+  constructor(private filters: FilterService) {
+    this.traks.set('track_1', '/assets/gpx/tracks/track_1.gpx');
+    this.traks.set('track_2', '/assets/gpx/tracks/track_2.gpx');
 
-    const tr1 = new Map<string, string>();
-    tr1.set('lakes', '/assets/gpx/markers/track_1_markers_lakes.gpx');
 
-    const tr2 = new Map<string, string>();
-    tr2.set('trees', '/assets/gpx/markers/track_2_markers_trees.gpx');
-    tr2.set('lakes', '/assets/gpx/markers/track_2_markers_lakes.gpx');
-
-    this.marks.set('track_2', tr2);
-    this.marks.set('track_1', tr1);
+    this.marks.set('trees', '/assets/gpx/markers/trees.gpx');
+    this.marks.set('lakes', '/assets/gpx/markers/lakes.gpx');
+    this.marks.set('springs', '/assets/gpx/markers/springs.gpx');
+    this.marks.set('others', '/assets/gpx/markers/others.gpx')
   }
 
-  trackByNumber(trackNumber: number) {
-    return this.traks.get(`track_${trackNumber}`) || '';
+  trackByName(name: string) {
+    return this.traks.get(name) || '';
   }
 
-  maekersByTrack(trackNumber: number) {
-    return this.marks.get(`track_${trackNumber}`) || new Map<string, string>();
+  markersByName(name: string) {
+    return this.marks.get(name) || '';
+  }
+
+  selectedMarkers() {
+    return this.marks;
   }
 }

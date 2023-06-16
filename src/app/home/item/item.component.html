@@ -1,1 +1,107 @@
-<p>item works!</p>
+<img alt="Photo of a Shiba Inu" mat-card-image
+     src="https://material.angular.io/assets/img/examples/shiba2.jpg">
+<div class="screen-content">
+  <h1 class="item-title">Possível caminho com um nome muito grande</h1>
+  <span class="item-info">15 km - circular - 1h30</span>
+
+  <mat-grid-list class="path-info" cols="4" rowHeight="1:1">
+    <mat-grid-tile>
+      <div class="item">
+        <img alt="Distância" src="assets/images/distance.png"/>
+        <br/>
+        <span class="label">5 km</span>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="item">
+        <img alt="Distância" src="assets/images/clock.png"/>
+        <br/>
+        <span class="label">1h30</span>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="item">
+        <img alt="Distância" src="assets/images/circular.png"/>
+        <br/>
+        <span class="label">Circular</span>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="item">
+        <img alt="Distância" src="assets/images/walk.png"/>
+        <br/>
+        <span class="label">fácil</span>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
+  <button class="button-right-icon very-wide start-go-path-button" mat-raised-button routerLink="/map/track_1">
+    Comerçar percurso
+
+    <mat-icon class="right-icon" color="dark-green">
+      chevron_right
+    </mat-icon>
+  </button>
+
+  <div class="warning-message">
+    <div class="icon">
+      <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="warning"></mat-icon>
+    </div>
+
+    <div class="right-float">
+      <span class="title">Aviso!</span>
+      <span>Por motivos de derrocada este caminho está parcialmente interdito</span>
+    </div>
+  </div>
+  <hr/>
+  Isto é um texto exemplo sobre o percurso que leva à cascata do poio.
+  Deve-se escrever primeiro informações sobre o caminho. Se o caminho tiver alguma história também se pode escrever aqui
+  e adicionalmente por último comentar sobre os pontos de interesse que se podem observar (por exemplo a cascata).
+  <hr/>
+
+  <span class="category-title">Caracteristicas</span>
+  <mat-grid-list class="path-info" cols="4" rowHeight="60px">
+    <mat-grid-tile>
+      <img src="assets/images/binoculos.png"/>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3">
+      <div class="label-column">Grande Vista</div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <img src="assets/images/rock-path.png"/>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3">
+      <div class="label-column">Caminho Rochoso</div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <img src="assets/images/big-elevations.png"/>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3">
+      <div class="label-column">Grande elevação</div>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <hr/>
+  <span class="category-title">Indicações</span>
+  <mat-grid-list class="path-info" cols="4" rowHeight="60px">
+    <mat-grid-tile>
+      <img src="assets/images/not-for-kids.png"/>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3">
+      <div class="label-column">Não indicado para crianças</div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <img src="assets/images/right-shoes.png"/>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3">
+      <div class="label-column">Calçado adequado</div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <img src="assets/images/bumped-path.png"/>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="3">
+      <div class="label-column">Caminho esbarrido</div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
