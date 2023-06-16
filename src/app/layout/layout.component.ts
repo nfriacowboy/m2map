@@ -26,7 +26,7 @@ export class LayoutComponent implements OnInit {
     this.router.events.pipe(untilDestroyed(this),
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
-      // this.contentWrapper.nativeElement.scrollTo(0, 0);
+      this.contentWrapper.nativeElement.scrollTo(0, 0);
     });
   }
 
