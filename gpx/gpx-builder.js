@@ -1,7 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 const fse = require('fs-extra');
-const xml2js = require('xml2js');
 
 function copyMarkers() {
   const sourceFolder = './gpx/markers';
@@ -23,6 +22,7 @@ function copyFolderContents(sourceFolder, destinationFolder) {
   });
 }
 
+/*
 function extractMetadata(filename) {
   const data = fs.readFileSync(filename);
   const parser = new xml2js.Parser();
@@ -50,7 +50,7 @@ function buildTracksInfo() {
     const destination = path.join(destinationFolder, jsonFile);
     fs.writeFileSync(destination, JSON.stringify(fileInfo));
   });
-}
+}*/
 
 
 copyMarkers();
